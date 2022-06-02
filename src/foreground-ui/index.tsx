@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { MemoryRouter } from "react-router-dom";
+import { FOREGROUND_HTML_ID } from "../shared/constants";
 import App from "./app";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<MemoryRouter>
-			<App />
-		</MemoryRouter>
+		<App />
 	</React.StrictMode>,
-	document.getElementById("foreground"),
+	document.getElementById(FOREGROUND_HTML_ID),
 );

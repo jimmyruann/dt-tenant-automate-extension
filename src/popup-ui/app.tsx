@@ -1,6 +1,5 @@
-import { createStyles } from "@mantine/core";
-import { useRoutes } from "react-router-dom";
-import { appRoutes } from "./routes";
+import { createStyles, MantineProvider } from "@mantine/core";
+import Home from "./components/home";
 
 const useStyles = createStyles((theme) => ({
 	app: {
@@ -11,8 +10,13 @@ const useStyles = createStyles((theme) => ({
 
 export const App = () => {
 	const { classes } = useStyles();
-	const routes = useRoutes(appRoutes);
-	return <main className={classes.app}>{routes}</main>;
+	return (
+		<MantineProvider>
+			<main className={classes.app}>
+				<Home />
+			</main>
+		</MantineProvider>
+	);
 };
 
 export default App;

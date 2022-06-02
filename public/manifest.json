@@ -1,17 +1,23 @@
 {
 	"manifest_version": 3,
-	"name": "Dynatrace ci360 Extension (D1)",
-	"description": "Mainly to pull data out from ci360",
+	"name": "Tenant Health Check",
+	"description": "Pull HC data out from Dynatrace & don't tell the managers.",
 	"version": "1.0.0",
 	"author": "Jimmy Ruan",
 	"background": {
 		"service_worker": "background.js"
 	},
 	"action": {
-		"default_icon": { "16": "assets/icon16.png", "48": "assets/icon48.png", "128": "assets/icon128.png" },
-		"default_title": "Click Me",
+		"default_icon": { "16": "assets/120.png", "48": "assets/152.png", "128": "assets/180.png" },
+		"default_title": "Tenant Health Check",
 		"default_popup": "popup.html"
 	},
 	"permissions": ["tabs", "activeTab", "scripting"],
-	"host_permissions": ["https://ci360.dynatrace.com/", "*://*/*"]
+	"host_permissions": ["https://*.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.dynatracelabs.com/*"],
+	"web_accessible_resources": [
+		{
+			"resources": ["foreground.js"],
+			"matches": ["https://*.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.dynatracelabs.com/*"]
+		}
+	]
 }
