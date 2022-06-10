@@ -50,7 +50,6 @@ const config = {
 			"@src": path.resolve(__dirname, "src/"),
 		},
 	},
-	devtool: "inline-source-map",
 };
 
 module.exports = () => {
@@ -58,6 +57,7 @@ module.exports = () => {
 		config.mode = "production";
 	} else {
 		config.mode = "development";
+		config.devtool = "inline-source-map"
 	}
 	return config;
 };

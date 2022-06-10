@@ -1,5 +1,5 @@
 {
-	"name": "my-webpack-project",
+	"name": "dt-tenant-automate-extension",
 	"version": "1.0.0",
 	"main": "index.js",
 	"author": "jimmyruann <jimmyruan@hotmail.com>",
@@ -7,7 +7,6 @@
 	"devDependencies": {
 		"@types/chrome": "^0.0.188",
 		"@types/jest": "^27.5.1",
-		"@types/lodash": "^4.14.182",
 		"@types/react": "17.0.39",
 		"@types/react-dom": "17.0.11",
 		"@typescript-eslint/eslint-plugin": "^5.26.0",
@@ -35,14 +34,10 @@
 	"dependencies": {
 		"@mantine/core": "^4.2.6",
 		"@mantine/hooks": "^4.2.6",
-		"@mantine/modals": "^4.2.6",
 		"axios": "^0.27.2",
-		"lodash": "^4.17.21",
-		"p-limit": "^4.0.0",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
 		"react-query": "^3.39.1",
-		"react-router-dom": "6",
 		"ts-loader": "^9.3.0"
 	},
 	"description": "My webpack project",
