@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/kubernetes?entitySelector=type(KUBERNETES_CLUSTER)&loadInactiveEntities=false&gtf=l_30_DAYS";
-};
-
 export interface KubernetesIntegrations {
 	entities: Entity[];
 	totalEntitiesCount: number;
@@ -17,7 +13,7 @@ export interface KubernetesIntegrations {
 	cgStoringEnabled: boolean;
 }
 
-export interface Entity {
+interface Entity {
 	customChartingTimeseriesColumnValues: CustomChartingTimeseriesColumnValues;
 	available: boolean;
 	id: string;
@@ -37,20 +33,20 @@ export interface Entity {
 	workloadCount?: number;
 }
 
-export interface CustomChartingTimeseriesColumnValues {
+interface CustomChartingTimeseriesColumnValues {
 	data: Data;
 }
 
-export interface Data {}
+interface Data {}
 
-export interface FilterConfig {
+interface FilterConfig {
 	listSortType: string;
 	listFiltersPerMEIndex: ListFiltersPerMEIndex[];
 	unsupportedFilters: any[];
 	allowedToEditFilter: boolean;
 }
 
-export interface ListFiltersPerMEIndex {
+interface ListFiltersPerMEIndex {
 	indexEntityType: string;
 	filterItems: any[];
 }

@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/v2/settings/persistence/builtin:problem.notifications/tenant/tenant?inheritedOnly=false&includeValues=true&includeSummaries=true";
-};
-
 export interface ProblemIntegrations {
 	totalCount: number;
 	settings: ProblemIntegrationSetting[];
@@ -10,7 +6,7 @@ export interface ProblemIntegrations {
 	author: string;
 }
 
-export interface ProblemIntegrationSetting {
+interface ProblemIntegrationSetting {
 	creationTimestamp: number;
 	revision: number;
 	name: string;
@@ -25,7 +21,7 @@ export interface ProblemIntegrationSetting {
 	modificationInfo: ModificationInfo;
 }
 
-export interface FluffyValue {
+interface FluffyValue {
 	enabled: boolean;
 	type: string;
 	displayName: string;
@@ -38,7 +34,7 @@ export interface FluffyValue {
 	serviceNowNotification?: ServiceNowNotification;
 }
 
-export interface JiraNotification {
+interface JiraNotification {
 	url: string;
 	username: string;
 	apiToken: string;
@@ -48,13 +44,13 @@ export interface JiraNotification {
 	description: string;
 }
 
-export interface PagerDutyNotification {
+interface PagerDutyNotification {
 	account: string;
 	serviceName: string;
 	serviceApiKey: string;
 }
 
-export interface ServiceNowNotification {
+interface ServiceNowNotification {
 	instanceName: string;
 	username: string;
 	password: string;
@@ -63,13 +59,13 @@ export interface ServiceNowNotification {
 	sendEvents: boolean;
 }
 
-export interface SlackNotification {
+interface SlackNotification {
 	url: string;
 	channel: string;
 	message: string;
 }
 
-export interface WebHookNotification {
+interface WebHookNotification {
 	url: string;
 	acceptAnyCertificate: boolean;
 	notifyEventMergesEnabled: boolean;
@@ -78,20 +74,20 @@ export interface WebHookNotification {
 	payload: string;
 }
 
-export interface Header {
+interface Header {
 	name: string;
 	secret: boolean;
 	value: string;
 }
 
-export interface XMattersNotification {
+interface XMattersNotification {
 	url: string;
 	acceptAnyCertificate: boolean;
 	headers: any[];
 	payload: string;
 }
 
-export interface ModificationInfo {
+interface ModificationInfo {
 	deletable: boolean;
 	modifiable: boolean;
 	movable: boolean;

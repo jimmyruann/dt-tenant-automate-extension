@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/syntheticmonitor/monitorloc?gf=all";
-};
-
 export interface Synthetic {
 	visuallyComplete2Enabled: boolean;
 	webcheckList: WebcheckList[];
@@ -14,7 +10,7 @@ export interface Synthetic {
 	availabilityQueryMonitorLimit: number;
 }
 
-export interface HttpcheckList {
+interface HttpcheckList {
 	id: string;
 	deviceProfile: string;
 	webcheckType: WebcheckType;
@@ -38,7 +34,7 @@ export interface HttpcheckList {
 	active: boolean;
 }
 
-export interface WebcheckList {
+interface WebcheckList {
 	id: string;
 	deviceProfile: string;
 	webcheckType: WebcheckType;
@@ -63,11 +59,11 @@ export interface WebcheckList {
 	active: boolean;
 }
 
-export interface ManagementZoneElement {
+interface ManagementZoneElement {
 	name: string;
 	id: string;
 }
 
-export interface WebcheckType {
+interface WebcheckType {
 	type: string;
 }

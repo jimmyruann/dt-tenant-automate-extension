@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/virtualization/aws";
-};
-
 export interface AWSIntegrations {
 	awsConfiguration: AwsConfiguration[];
 	awsExternalIdToken: string;
@@ -9,7 +5,7 @@ export interface AWSIntegrations {
 	forcePrivateCollector: boolean;
 }
 
-export interface AwsConfiguration {
+interface AwsConfiguration {
 	id: string;
 	label: string;
 	areSupportingServicesSupported: boolean;
@@ -31,7 +27,7 @@ export interface AwsConfiguration {
 	accountId?: string;
 }
 
-export interface MaxAvailableAGVersion {
+interface MaxAvailableAGVersion {
 	major: number;
 	minor: number;
 	revision: number;
@@ -39,23 +35,23 @@ export interface MaxAvailableAGVersion {
 	validVersion: boolean;
 }
 
-export interface MonitorOnlyTagPair {
+interface MonitorOnlyTagPair {
 	name: string;
 	value: string;
 }
 
-export interface SupportingService {
+interface SupportingService {
 	serviceShortName: string;
 	metrics: Metric[];
 }
 
-export interface Metric {
+interface Metric {
 	name: string;
 	statistic: Statistic;
 	dimensions: string[];
 }
 
-export enum Statistic {
+enum Statistic {
 	Average = "AVERAGE",
 	Maximum = "MAXIMUM",
 	Multi = "MULTI",

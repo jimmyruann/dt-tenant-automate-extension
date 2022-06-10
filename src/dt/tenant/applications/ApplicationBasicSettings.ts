@@ -1,9 +1,3 @@
-export const getApiUrl = (applicationId: string) => {
-	// Example appId: APPLICATION-08EBD5603755FA87
-	const [type, appId] = applicationId.split("-");
-	return `/rest/v2/settings/persistence/builtin:rum.web.enablement/APPLICATION/${appId}?includeValues=true`;
-};
-
 export interface ApplicationBasicSettings {
 	totalCount: number;
 	settings: Setting[];
@@ -12,7 +6,7 @@ export interface ApplicationBasicSettings {
 	author: string;
 }
 
-export interface Setting {
+interface Setting {
 	creationTimestamp: number;
 	revision: number;
 	name: string;
@@ -26,7 +20,7 @@ export interface Setting {
 	modificationInfo: ModificationInfo;
 }
 
-export interface ModificationInfo {
+interface ModificationInfo {
 	deletable: boolean;
 	modifiable: boolean;
 	movable: boolean;
@@ -35,12 +29,12 @@ export interface ModificationInfo {
 	nonModifiablePaths: any[];
 }
 
-export interface Value {
+interface Value {
 	rum: Rum;
 	sessionReplay: Rum;
 }
 
-export interface Rum {
+interface Rum {
 	enabled: boolean;
 	costAndTrafficControl: number;
 }

@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/requestattributes";
-};
-
 export interface RequestAttributes {
 	perService: { [key: string]: string[] };
 	requestAttributes: RequestAttributeElement[];
@@ -9,12 +5,12 @@ export interface RequestAttributes {
 	hotSensorPlacementEnabled: boolean;
 }
 
-export interface ManagementZoneElement {
+interface ManagementZoneElement {
 	name: string;
 	id: string;
 }
 
-export interface RequestAttributeElement {
+interface RequestAttributeElement {
 	name: string;
 	id: string;
 	enabled: boolean;

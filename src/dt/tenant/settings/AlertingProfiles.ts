@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/v2/settings/persistence/builtin:alerting.profile/tenant/tenant?inheritedOnly=false&includeValues=true&includeSummaries=true";
-};
-
 export interface AlertingProfiles {
 	totalCount: number;
 	settings: AlertingProfileSetting[];
@@ -10,7 +6,7 @@ export interface AlertingProfiles {
 	author: string;
 }
 
-export interface AlertingProfileSetting {
+interface AlertingProfileSetting {
 	creationTimestamp: number;
 	revision: number;
 	name: string;
@@ -25,7 +21,7 @@ export interface AlertingProfileSetting {
 	modificationInfo: ModificationInfo;
 }
 
-export interface ModificationInfo {
+interface ModificationInfo {
 	deletable: boolean;
 	modifiable: boolean;
 	movable: boolean;
@@ -33,25 +29,25 @@ export interface ModificationInfo {
 	modifiablePaths: any[];
 }
 
-export interface PurpleValue {
+interface PurpleValue {
 	name: string;
 	severityRules: SeverityRule[];
 	eventFilters: EventFilter[];
 	managementZone?: string;
 }
 
-export interface EventFilter {
+interface EventFilter {
 	type: string;
 	predefinedFilter: PredefinedFilter;
 }
 
-export interface SeverityRule {
+interface SeverityRule {
 	severityLevel: string;
 	delayInMinutes: number;
 	tagFilterIncludeMode: string;
 }
 
-export interface PredefinedFilter {
+interface PredefinedFilter {
 	eventType: string;
 	negate: boolean;
 }

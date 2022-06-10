@@ -1,12 +1,8 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/monitoringextensions";
-};
-
 export interface Extensions {
 	list: ExtensionList[];
 }
 
-export interface ExtensionList {
+interface ExtensionList {
 	extensionId: string;
 	extensionName: string;
 	extensionType: string;
@@ -29,7 +25,7 @@ export interface ExtensionList {
 	beta: boolean;
 }
 
-export interface ExtensionProperties {
+interface ExtensionProperties {
 	monitoring_mode?: CitrixagentRun;
 	citrixagent_run?: CitrixagentRun;
 	openkit_beacon_url?: OpenkitBeaconURL;
@@ -163,7 +159,7 @@ export interface ExtensionProperties {
 	BytesSentToReplicaPerSecond?: AverageLatchWaitTimeMilliSecond;
 }
 
-export interface AverageLatchWaitTimeMilliSecond {
+interface AverageLatchWaitTimeMilliSecond {
 	id: string;
 	name: string;
 	type: string;
@@ -171,7 +167,7 @@ export interface AverageLatchWaitTimeMilliSecond {
 	order: number;
 }
 
-export interface VirtualServers {
+interface VirtualServers {
 	id: string;
 	name: string;
 	type: string;
@@ -180,7 +176,7 @@ export interface VirtualServers {
 	hint: string;
 }
 
-export interface APITokenClass {
+interface APITokenClass {
 	id: string;
 	name: string;
 	type: string;
@@ -190,7 +186,7 @@ export interface APITokenClass {
 	hint: string;
 }
 
-export interface AuthPassword {
+interface AuthPassword {
 	id: string;
 	name: string;
 	type: string;
@@ -200,7 +196,7 @@ export interface AuthPassword {
 	hint?: string;
 }
 
-export interface AuthUser {
+interface AuthUser {
 	id: string;
 	name: string;
 	type: string;
@@ -210,7 +206,7 @@ export interface AuthUser {
 	hint?: string;
 }
 
-export interface CitrixagentRun {
+interface CitrixagentRun {
 	id: string;
 	name: string;
 	type: string;
@@ -221,7 +217,7 @@ export interface CitrixagentRun {
 	hint: string;
 }
 
-export interface ConnectionPassword {
+interface ConnectionPassword {
 	id: string;
 	name: string;
 	type: string;
@@ -230,7 +226,7 @@ export interface ConnectionPassword {
 	order: number;
 }
 
-export interface Connection {
+interface Connection {
 	id: string;
 	name: string;
 	type: string;
@@ -239,7 +235,7 @@ export interface Connection {
 	order: number;
 }
 
-export interface CustomDeviceGroupIdentifierSource {
+interface CustomDeviceGroupIdentifierSource {
 	id: string;
 	name: string;
 	type: string;
@@ -248,7 +244,7 @@ export interface CustomDeviceGroupIdentifierSource {
 	order: number;
 }
 
-export interface HostName {
+interface HostName {
 	id: string;
 	name: string;
 	type: string;
@@ -257,7 +253,7 @@ export interface HostName {
 	hint: string;
 }
 
-export interface LogLevel {
+interface LogLevel {
 	id: string;
 	name: string;
 	type: string;
@@ -267,7 +263,7 @@ export interface LogLevel {
 	order: number;
 }
 
-export interface OpenkitBeaconURL {
+interface OpenkitBeaconURL {
 	id: string;
 	name: string;
 	type: string;
@@ -276,7 +272,7 @@ export interface OpenkitBeaconURL {
 	order: number;
 }
 
-export interface SSLCipher {
+interface SSLCipher {
 	id: string;
 	name: string;
 	type: string;
@@ -286,7 +282,7 @@ export interface SSLCipher {
 	hint: string;
 }
 
-export interface StatusURI {
+interface StatusURI {
 	id: string;
 	name: string;
 	type: string;
@@ -296,7 +292,7 @@ export interface StatusURI {
 	hint: string;
 }
 
-export interface URL {
+interface URL {
 	id: string;
 	name: string;
 	type: string;

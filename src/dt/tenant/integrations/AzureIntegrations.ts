@@ -1,13 +1,9 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/virtualization/azure";
-};
-
 export interface AzureIntegrations {
 	list: AzureIntegrationList[];
 	managedDeployment: boolean;
 }
 
-export interface AzureIntegrationList {
+interface AzureIntegrationList {
 	id: string;
 	label: string;
 	areSupportingServicesSupported: boolean;
@@ -26,7 +22,7 @@ export interface AzureIntegrationList {
 	supportingServices: SupportingService[];
 }
 
-export interface MaxAvailableAGVersion {
+interface MaxAvailableAGVersion {
 	major: number;
 	minor: number;
 	revision: number;
@@ -34,12 +30,12 @@ export interface MaxAvailableAGVersion {
 	validVersion: boolean;
 }
 
-export interface SupportingService {
+interface SupportingService {
 	serviceShortName: string;
 	metrics: Metric[];
 }
 
-export interface Metric {
+interface Metric {
 	name: string;
 	dimensions: string[];
 }

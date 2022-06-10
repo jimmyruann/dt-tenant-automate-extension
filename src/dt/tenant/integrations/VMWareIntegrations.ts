@@ -1,12 +1,8 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/virtualization/vcenter";
-};
-
 export interface VMWareIntegrations {
-	list: VMWareIntegrations[];
+	list: VMWareIntegration[];
 }
 
-export interface VMWareIntegrations {
+interface VMWareIntegration {
 	id: string;
 	hostName: string;
 	userName: string;

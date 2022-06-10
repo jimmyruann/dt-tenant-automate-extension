@@ -1,12 +1,8 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/requestNaming";
-};
-
 export interface RequestNamingRules {
-	list: RequestNamingRuleList[];
+	list?: RequestNamingRuleList[];
 }
 
-export interface RequestNamingRuleList {
+interface RequestNamingRuleList {
 	id: string;
 	enabled: boolean;
 	namingPattern: string;
@@ -14,7 +10,7 @@ export interface RequestNamingRuleList {
 	methodNamingExtractions: MethodNamingExtraction[];
 }
 
-export interface MethodNamingCondition {
+interface MethodNamingCondition {
 	attribute: string;
 	matcher: string;
 	negate: boolean;
@@ -24,7 +20,7 @@ export interface MethodNamingCondition {
 	caseSensitive: boolean;
 }
 
-export interface MethodNamingExtraction {
+interface MethodNamingExtraction {
 	attribute: string;
 	name: string;
 	kind: string;

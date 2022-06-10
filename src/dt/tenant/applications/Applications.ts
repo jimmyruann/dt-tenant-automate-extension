@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/uemapplications?parts=main%2Chealth-ts%2Chealth-od&timeframe=last2h&gtf=l_30_DAYS&gf=all";
-};
-
 export interface Applications {
 	dcrumApplications: any[];
 	unmonitoredApplications: any[];
@@ -15,11 +11,11 @@ export interface Applications {
 	uemApplications: UemApplication[];
 }
 
-export interface BaseEntity {
+interface BaseEntity {
 	settings: Settings;
 }
 
-export interface Settings {
+interface Settings {
 	bp3ss4: string;
 	fe2: string;
 	vc2: string;
@@ -30,7 +26,7 @@ export interface Settings {
 	appTimeframe: string;
 }
 
-export interface UemApplication {
+interface UemApplication {
 	name: string;
 	id: string;
 	serviceType: string;

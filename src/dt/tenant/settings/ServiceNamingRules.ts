@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/conditionalnaming?ruletype=SERVICE";
-};
-
 export interface ServiceNamingRules {
 	rules: ServiceNamingRuleRule[];
 	builtinRules: BuiltinRule[];
@@ -10,7 +6,7 @@ export interface ServiceNamingRules {
 	supportedAttributes: SupportedAttribute[];
 }
 
-export interface BuiltinRule {
+interface BuiltinRule {
 	id: string;
 	type: string;
 	nameFormat: string;
@@ -20,7 +16,7 @@ export interface BuiltinRule {
 	builtInKey: string;
 }
 
-export interface ServiceNamingRuleRule {
+interface ServiceNamingRuleRule {
 	id: string;
 	type: string;
 	nameFormat: string;
@@ -30,7 +26,7 @@ export interface ServiceNamingRuleRule {
 	builtIn: boolean;
 }
 
-export interface PurpleCondition {
+interface PurpleCondition {
 	conditionAttributeId: SupportedAttribute;
 	negate: boolean;
 	comparisonOperator: string;
@@ -39,7 +35,7 @@ export interface PurpleCondition {
 	tagValue?: TagValue;
 }
 
-export interface PGEntity {
+interface PGEntity {
 	displayName: string;
 	id: string;
 	type: string;
@@ -53,20 +49,20 @@ export interface PGEntity {
 	selectable: boolean;
 }
 
-export interface Placeholder {
+interface Placeholder {
 	conditionAttributeId: SupportedAttribute;
 	placeholder: string;
 }
 
-export interface Metrics {}
+interface Metrics {}
 
-export interface SupportedAttribute {
+interface SupportedAttribute {
 	conditionAttribute: string;
 	dynamicPropId: string;
 	dynamicPropIdKey: string;
 }
 
-export interface BuiltinRuleCondition {
+interface BuiltinRuleCondition {
 	conditionAttributeId: SupportedAttribute;
 	negate: boolean;
 	comparisonOperator: string;
@@ -74,7 +70,7 @@ export interface BuiltinRuleCondition {
 	caseIgnore: boolean;
 }
 
-export interface TagValue {
+interface TagValue {
 	context: string;
 	key: string;
 	value: string;

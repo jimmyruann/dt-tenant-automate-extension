@@ -1,7 +1,3 @@
-export const getApiUrl = (applicationId: string, type: "xhr" | "load" | "custom") => {
-	return `/rest/configshared/appnamingrules${type}/appId/${applicationId}`;
-};
-
 interface ApplicationUserActionRules {
 	splitUserActionsByDomain: boolean;
 	caseInsensitiveRules: boolean;

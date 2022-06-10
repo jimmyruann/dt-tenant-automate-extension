@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/serviceMetrics";
-};
-
 export interface CalcServiceMetrics {
 	metrics: CalcServiceMetricMetric[];
 	topXLimit: number;
@@ -9,7 +5,7 @@ export interface CalcServiceMetrics {
 	placeholderLimit: number;
 }
 
-export interface CalcServiceMetricMetric {
+interface CalcServiceMetricMetric {
 	name: string;
 	id: string;
 	tsmMetricKey: string;

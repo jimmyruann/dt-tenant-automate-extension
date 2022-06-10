@@ -13,11 +13,11 @@
 		"default_popup": "popup.html"
 	},
 	"permissions": ["tabs", "activeTab", "scripting"],
-	"host_permissions": ["https://*.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.dynatracelabs.com/*"],
+	"host_permissions": ["https://*.live.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.sprint.dynatracelabs.com/*", "https://*.dev.dynatracelabs.com/*"],
 	"web_accessible_resources": [
 		{
-			"resources": ["foreground.js"],
-			"matches": ["https://*.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.dynatracelabs.com/*"]
+			"resources": ["index.html", "foreground.js"],
+			"matches": ["<all_urls>"]
 		}
 	]
 }

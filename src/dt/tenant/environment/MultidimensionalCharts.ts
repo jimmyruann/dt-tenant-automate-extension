@@ -1,10 +1,6 @@
-export const getApiUrl = () => {
-	return "/rest/mda2bookmarks/list?gtf=l_30_DAYS";
-};
-
 export type MultidimensionalCharts = MultidimensionalChart[];
 
-export interface MultidimensionalChart {
+interface MultidimensionalChart {
 	configName: string;
 	configId: string;
 	metric: string;

@@ -1,12 +1,8 @@
-export const getApiUrl = (applicationId: string) => {
-	return `/rest/configshared/uemusertag/appId/${applicationId}`;
-};
-
 export interface ApplicationUserTags {
 	list: List[];
 }
 
-export interface List {
+interface List {
 	enabled: boolean;
 	type: string;
 	name: string;

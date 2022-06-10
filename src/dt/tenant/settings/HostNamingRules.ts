@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/conditionalnaming?ruletype=HOST";
-};
-
 export interface HostNamingRules {
 	rules: HostNamingRuleRule[];
 	builtinRules: any[];
@@ -10,7 +6,7 @@ export interface HostNamingRules {
 	supportedAttributes: SupportedAttribute[];
 }
 
-export interface PGEntity {
+interface PGEntity {
 	displayName: string;
 	id: string;
 	type: string;
@@ -24,18 +20,18 @@ export interface PGEntity {
 	selectable: boolean;
 }
 
-export interface Placeholder {
+interface Placeholder {
 	conditionAttributeId: SupportedAttribute;
 	placeholder: string;
 }
 
-export interface SupportedAttribute {
+interface SupportedAttribute {
 	conditionAttribute: string;
 	dynamicPropId: string;
 	dynamicPropIdKey: string;
 }
 
-export interface HostNamingRuleRule {
+interface HostNamingRuleRule {
 	id: string;
 	type: string;
 	nameFormat: string;
@@ -45,7 +41,7 @@ export interface HostNamingRuleRule {
 	builtIn: boolean;
 }
 
-export interface BuiltinRuleCondition {
+interface BuiltinRuleCondition {
 	conditionAttributeId: SupportedAttribute;
 	negate: boolean;
 	comparisonOperator: string;
@@ -53,4 +49,4 @@ export interface BuiltinRuleCondition {
 	caseIgnore: boolean;
 }
 
-export interface Metrics {}
+interface Metrics {}

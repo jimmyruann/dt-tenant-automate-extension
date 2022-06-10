@@ -1,7 +1,3 @@
-export const getApiUrl = (applicationId: string) => {
-	return `https://guu84124.live.dynatrace.com/rest/uemshareddetails/overviewdata/performanalysis/${applicationId}?tcFn=p50&topUserActionType=TIME_CONSUMED&uaSearchMode=TOP_ACTIONS&parts=bmain%2Cbperformance%2Cbuseractkey%2Cbuseractn&timeframe=last2h&gtf=l_30_DAYS`;
-};
-
 export interface ApplicationUserActions {
 	booleans: Booleans;
 	settings: ApplicationUserActionsSettings;
@@ -17,18 +13,18 @@ export interface ApplicationUserActions {
 	baseEntity: BaseEntity;
 }
 
-export interface BaseEntity {
+interface BaseEntity {
 	settings: BaseEntitySettings;
 }
 
-export interface BaseEntitySettings {
+interface BaseEntitySettings {
 	mxIdxFlSmplRt_bperformance: string;
 	mxIdxFlSmplRt_buseractn: string;
 	mxIdxFlSmplRt_buseractkey: string;
 	parts: string;
 }
 
-export interface Booleans {
+interface Booleans {
 	uaProp: boolean;
 	isExtMetricsEnabled: boolean;
 	bPerfCntTotalLoad: boolean;
@@ -39,7 +35,7 @@ export interface Booleans {
 	showVcSiWrn: boolean;
 }
 
-export interface DataPointLists {
+interface DataPointLists {
 	bPerfLoad: BPerfCntLoad;
 	bPerfCntTotalLoad: BPerfCntLoad;
 	bPerfCntLoad: BPerfCntLoad;
@@ -48,17 +44,17 @@ export interface DataPointLists {
 	bPerfCntXhr: BPerfCntLoad;
 }
 
-export interface BPerfCntLoad {
+interface BPerfCntLoad {
 	dataPoints: LastValue[];
 	lastValue: LastValue;
 }
 
-export interface LastValue {
+interface LastValue {
 	timestamp: number;
 	value: number;
 }
 
-export interface EventDataAggregations {
+interface EventDataAggregations {
 	timeSlots: TimeSlots;
 	counts: Counts;
 	monitoredEntityIds: string[];
@@ -66,21 +62,21 @@ export interface EventDataAggregations {
 	eventMetadataFilterItems: any[];
 }
 
-export interface Counts {
+interface Counts {
 	APPLICATION_ERROR_RATE_INCREASED: number;
 	ERROR_EVENT: number;
 	CUSTOM_INFO: number;
 	APPLICATION_SLOWDOWN: number;
 }
 
-export interface TimeSlots {
+interface TimeSlots {
 	APPLICATION_ERROR_RATE_INCREASED: BPerfCntLoad;
 	CUSTOM_INFO: BPerfCntLoad;
 	ERROR_EVENT: BPerfCntLoad;
 	APPLICATION_SLOWDOWN: BPerfCntLoad;
 }
 
-export interface Timeframe {
+interface Timeframe {
 	type: string;
 	startTime: number;
 	endTime: number;
@@ -88,12 +84,12 @@ export interface Timeframe {
 	center: number;
 }
 
-export interface Events {
+interface Events {
 	eventsNat: any[];
 	events: Event[];
 }
 
-export interface Event {
+interface Event {
 	id: string;
 	startTime: number;
 	endTime: number;
@@ -110,12 +106,12 @@ export interface Event {
 	suppressProblem: boolean;
 }
 
-export enum CustomizedName {
+enum CustomizedName {
 	EasyTravelBooking = "easyTravel booking",
 	WWWEasytravelCOM = "www.easytravel.com",
 }
 
-export enum EventType {
+enum EventType {
 	ApplicationErrorRateIncreased = "APPLICATION_ERROR_RATE_INCREASED",
 	ApplicationSlowdown = "APPLICATION_SLOWDOWN",
 	ErrorEvent = "ERROR_EVENT",
@@ -123,7 +119,7 @@ export enum EventType {
 	SyntheticGlobalOutage = "SYNTHETIC_GLOBAL_OUTAGE",
 }
 
-export interface EventMetadata {
+interface EventMetadata {
 	CONSIDER_FOR_ROOT_CAUSE_ANALYSIS: string;
 	CONTEXT: Context;
 	BL_CURRENT_RESPONSE_TIME_MEDIAN?: string;
@@ -160,62 +156,62 @@ export interface EventMetadata {
 	BL_CURRENT_ERROR_RATE?: string;
 }
 
-export enum BlDurationMetricType {
+enum BlDurationMetricType {
 	ApplicationResponseTime = "APPLICATION_RESPONSE_TIME",
 }
 
-export enum Context {
+enum Context {
 	Baselining = "BASELINING",
 	Synthetic = "SYNTHETIC",
 }
 
-export enum EventExternalStatus {
+enum EventExternalStatus {
 	Closed = "CLOSED",
 }
 
-export enum EventGroupLabel {
+enum EventGroupLabel {
 	ApplicationSlowdown = "Application slowdown",
 	BrowserMonitorGlobalOutage = "Browser monitor global outage",
 	JavaScriptErrorRateIncrease = "JavaScript error rate increase",
 }
 
-export enum ApplicationMethod03Aba30624Be9B81 {
+enum ApplicationMethod03Aba30624Be9B81 {
 	KeypressOnTripDestinationOnPage = 'keypress on "Trip Destination" on page /',
 }
 
-export enum ApplicationMethodAa269E48D8F0746A {
+enum ApplicationMethodAa269E48D8F0746A {
 	ClickOnSearchOnPage = 'click on "Search" on page /',
 }
 
-export enum ApplicationMethodGroup9223692882571_F55 {
+enum ApplicationMethodGroup9223692882571_F55 {
 	Load = "Load",
 	Xhr = "Xhr",
 }
 
-export enum Browser44C8Efe87C847Ca6 {
+enum Browser44C8Efe87C847Ca6 {
 	DesktopBrowser = "Desktop Browser",
 }
 
-export enum BrowserFf8Eae6885De87B3 {
+enum BrowserFf8Eae6885De87B3 {
 	Chrome = "Chrome",
 }
 
-export enum OSA8577Dd6C66Da5E1 {
+enum OSA8577Dd6C66Da5E1 {
 	Windows10 = "Windows 10",
 }
 
-export enum OSC2Ce1Ed9011Fa680 {
+enum OSC2Ce1Ed9011Fa680 {
 	Windows = "Windows",
 }
 
-export enum SeverityEquivalence {
+enum SeverityEquivalence {
 	The190001High = "190001☰☰☰high",
 	The190002High = "190002☰☰☰high",
 	The190002High190001High = "190002☰☰☰high◘◘◘190001☰☰☰high",
 	The190003High = "190003☰☰☰high",
 }
 
-export interface MetaEntity {
+interface MetaEntity {
 	id: string;
 	internalName: CustomizedName;
 	customizedName: CustomizedName;
@@ -233,17 +229,17 @@ export interface MetaEntity {
 	health: any[];
 }
 
-export enum Type {
+enum Type {
 	Application = "APPLICATION",
 }
 
-export interface ProblemSectionData {
+interface ProblemSectionData {
 	problems: Problem[];
 	totalProblemCount: number;
 	yellowStateData: YellowStateData;
 }
 
-export interface Problem {
+interface Problem {
 	displayName: string;
 	id: string;
 	startTime: number;
@@ -260,7 +256,7 @@ export interface Problem {
 	underMaintenance: boolean;
 }
 
-export interface FirstEvent {
+interface FirstEvent {
 	id: string;
 	startTime: number;
 	endTime: number;
@@ -277,7 +273,7 @@ export interface FirstEvent {
 	suppressProblem: boolean;
 }
 
-export interface FirstEventMetadata {
+interface FirstEventMetadata {
 	CONSIDER_FOR_ROOT_CAUSE_ANALYSIS: string;
 	CONTEXT: Context;
 	BL_CURRENT_RESPONSE_TIME_MEDIAN?: string;
@@ -329,20 +325,20 @@ export interface FirstEventMetadata {
 	EFFECTIVE_ENTITY_ID?: string;
 }
 
-export enum SeverityLevel {
+enum SeverityLevel {
 	Availability = "AVAILABILITY",
 	Errors = "ERRORS",
 	Performance = "PERFORMANCE",
 }
 
-export interface YellowStateData {
+interface YellowStateData {
 	yellowStateData: GenericYellowStateDataClass;
 	genericYellowStateData: GenericYellowStateDataClass;
 }
 
-export interface GenericYellowStateDataClass {}
+interface GenericYellowStateDataClass {}
 
-export interface ApplicationUserActionsSettings {
+interface ApplicationUserActionsSettings {
 	appName: CustomizedName;
 	metricsTopXLimit: string;
 	bPerfLoad: string;
@@ -350,16 +346,16 @@ export interface ApplicationUserActionsSettings {
 	bPerfRouteChg: string;
 	string: string;
 }
-export interface UserActions {
-	result: Result;
+interface UserActions {
+	result?: Result;
 }
 
-export interface Result {
+interface Result {
 	realtimeUserActions: RealtimeUserAction[];
 	subscribed: boolean;
 }
 
-export interface RealtimeUserAction {
+interface RealtimeUserAction {
 	id: string;
 	actionName: string;
 	actionType: ApplicationMethodGroup9223692882571_F55;
@@ -376,12 +372,12 @@ export interface RealtimeUserAction {
 	actionCount: number;
 }
 
-export enum Apdex {
+enum Apdex {
 	Excellent = "EXCELLENT",
 	Fair = "FAIR",
 	Good = "GOOD",
 }
 
-export enum HealthStatus {
+enum HealthStatus {
 	Healthy = "Healthy",
 }

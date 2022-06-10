@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/v2/slo?timeFrame=CURRENT&pageSize=10&isUiRequest=true&pageIdx=1&sort=name&evaluate=true";
-};
-
 export interface SLO {
 	totalCount: number;
 	pageSize: number;
@@ -9,7 +5,7 @@ export interface SLO {
 	slo: SloElement[];
 }
 
-export interface SloElement {
+interface SloElement {
 	id: string;
 	enabled: boolean;
 	name: string;

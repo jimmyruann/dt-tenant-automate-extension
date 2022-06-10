@@ -1,7 +1,3 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/conditionalnaming?ruletype=PROCESS_GROUP";
-};
-
 export interface ProcessNamingRules {
 	rules: HostNamingRuleRule[];
 	builtinRules: any[];
@@ -10,7 +6,7 @@ export interface ProcessNamingRules {
 	supportedAttributes: SupportedAttribute[];
 }
 
-export interface PGEntity {
+interface PGEntity {
 	displayName: string;
 	id: string;
 	type: string;
@@ -24,17 +20,17 @@ export interface PGEntity {
 	selectable: boolean;
 }
 
-export interface Placeholder {
+interface Placeholder {
 	conditionAttributeId: SupportedAttribute;
 	placeholder: string;
 }
 
-export interface SupportedAttribute {
+interface SupportedAttribute {
 	conditionAttribute: string;
 	dynamicPropId: string;
 	dynamicPropIdKey: string;
 }
-export interface HostNamingRuleRule {
+interface HostNamingRuleRule {
 	id: string;
 	type: string;
 	nameFormat: string;
@@ -44,9 +40,9 @@ export interface HostNamingRuleRule {
 	builtIn: boolean;
 }
 
-export interface Metrics {}
+interface Metrics {}
 
-export interface BuiltinRuleCondition {
+interface BuiltinRuleCondition {
 	conditionAttributeId: SupportedAttribute;
 	negate: boolean;
 	comparisonOperator: string;

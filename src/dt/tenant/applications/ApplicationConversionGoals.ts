@@ -1,12 +1,8 @@
-export const getApiUrl = (applicationId: string) => {
-	return `/rest/configshared/appconversiongoals/appId/${applicationId}`;
-};
-
 export interface ApplicationConversionGoals {
 	list: List[];
 }
 
-export interface List {
+interface List {
 	id: string;
 	enabled: boolean;
 	type: string;
@@ -15,13 +11,13 @@ export interface List {
 	userActionDetails?: UserActionDetails;
 }
 
-export interface DestinationDetails {
+interface DestinationDetails {
 	urlOrPath: string;
 	matchType: string;
 	caseSensitive: boolean;
 }
 
-export interface UserActionDetails {
+interface UserActionDetails {
 	matchEntity: string;
 	matchType: string;
 	value: string;

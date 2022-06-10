@@ -1,12 +1,8 @@
-export const getApiUrl = () => {
-	return "/rest/configuration/managedzones";
-};
-
 export interface ManagementZones {
 	items: ManagementZoneItem[];
 }
 
-export interface ManagementZoneItem {
+interface ManagementZoneItem {
 	name: string;
 	id: string;
 	description?: string;

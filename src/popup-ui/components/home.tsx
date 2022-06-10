@@ -1,33 +1,15 @@
-import { Alert, Button, Space } from "@mantine/core";
-import { useState } from "react";
-import { toggleModalState } from "../../shared/toggleModalState";
+import { Button } from "@mantine/core";
 
 export const Home = () => {
-	const [modalOpen, setModalOpen] = useState(false);
-	const [error, setError] = useState("");
-
-	const toggleOpenForeground = () => {
-		toggleModalState<boolean>(
-			modalOpen,
-			(response) => setModalOpen(response),
-			() => setError("The current page is not an Dynatrace environment."),
-		);
+	const handleOpen = () => {
+		window.open(chrome.runtime.getURL("app.html"), "_blank")?.focus();
 	};
 
 	return (
 		<div>
-			<Button color='orange' fullWidth onClick={toggleOpenForeground}>
+			<Button color='orange' fullWidth onClick={handleOpen}>
 				Open Health Check Window
 			</Button>
-
-			{error && (
-				<>
-					<Space h='md' />
-					<Alert title='Error' color='red'>
-						{error}
-					</Alert>
-				</>
-			)}
 		</div>
 	);
 };

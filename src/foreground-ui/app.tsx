@@ -1,34 +1,51 @@
-import { MantineProvider, Modal, ScrollArea } from "@mantine/core";
-import { useEffect, useState } from "react";
-import { MODAL_STATE_KEY } from "../shared/constants";
-import { ICSRFDetails } from "../types/ICSRFDetails";
+import { Container, createStyles, MantineProvider } from "@mantine/core";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import Home from "./components/home";
 
-export const App = () => {
-	const [modalOpen, setModalOpen] = useState(false);
-	const [dtData, setDtData] = useState<ICSRFDetails>({
-		csrf_header_name: (window as any)["csrf_header_name"],
-		csrf_token: (window as any)["csrf_token"],
-	});
+const useStyles = createStyles((theme) => ({
+	main: {
+		backgroundColor: theme.colors.gray[0],
+		height: "100vh",
+	},
+}));
 
-	useEffect(() => {
-		window.addEventListener("message", (event) => {
-			if (event.data.key === MODAL_STATE_KEY) {
-				setModalOpen(event.data.value);
-			}
-		});
-	}, []);
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			retry: false,
+			refetchOnMount: false,
+			refetchOnReconnect: false,
+			refetchOnWindowFocus: false,
+			refetchIntervalInBackground: false,
+		},
+	},
+});
+
+export const App = () => {
+	const { classes } = useStyles();
 
 	return (
-		<MantineProvider>
-			<Modal centered closeOnClickOutside={false} closeOnEscape={false} opened={modalOpen} onClose={() => setModalOpen(false)} size={700} zIndex={2147480000}>
-				<ScrollArea style={{ height: 500 }}>
-					<main>
+		<QueryClientProvider client={queryClient}>
+			<MantineProvider
+				withGlobalStyles
+				withNormalizeCSS
+				styles={{
+					Paper: (theme) => ({
+						root: {
+							padding: theme.spacing.md,
+							boxShadow: theme.shadows.xs,
+						},
+					}),
+				}}>
+				<main className={classes.main}>
+					<Container fluid py='md'>
 						<Home />
-					</main>
-				</ScrollArea>
-			</Modal>
-		</MantineProvider>
+					</Container>
+				</main>
+			</MantineProvider>
+			<ReactQueryDevtools initialIsOpen={false} />
+		</QueryClientProvider>
 	);
 };
 
