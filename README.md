@@ -1,15 +1,5 @@
-# 🚀 Welcome to your new awesome project!
+# Dynatrace Tenant Health Check App
 
-This project has been created using **webpack-cli**, you can now run
+Please use this chrome extension at your own risk as this is not supported nor built by Dynatrace. This uses WebUI API, this API is not for user facing (API v1, API v2, Configuration API).
 
-```
-npm run build
-```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+![App Main Page](/docs/app.JPG)
