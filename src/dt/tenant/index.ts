@@ -4,12 +4,13 @@ import { ApplicationConversionGoals } from "./applications/ApplicationConversion
 import { Applications } from "./applications/Applications";
 import { ApplicationSessionProperties } from "./applications/ApplicationSessionProperties";
 import {
-	ApplicationUserXHRActionRules,
-	ApplicationUserLoadActionRules,
 	ApplicationUserCustomActionRules,
+	ApplicationUserLoadActionRules,
+	ApplicationUserXHRActionRules,
 } from "./applications/ApplicationUserActionRules";
 import { ApplicationUserActions } from "./applications/ApplicationUserActions";
 import { ApplicationUserTags } from "./applications/ApplicationUserTags";
+import { Dashboards } from "./environment/Dashboards";
 import { MultidimensionalCharts } from "./environment/MultidimensionalCharts";
 import { SLO } from "./environment/SLO";
 import { Synthetic } from "./environment/Synthetics";
@@ -210,6 +211,13 @@ export class DTApi {
 			SyntheticHTTP: data.httpcheckList.length,
 			SyntheticBrowser: countBrowser,
 			SyntheticBrowserClickPath: data.webcheckList.length - countBrowser,
+		};
+	}
+
+	async Dashboards() {
+		const { data } = await this.axiosClient.get<Dashboards>("/rest/dashboards/list?admin=true&gtf=l_30_DAYS");
+		return {
+			Dashboards: data.dashboards.length,
 		};
 	}
 

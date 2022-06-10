@@ -40,6 +40,7 @@ export const Results = ({ baseURL, csrf_token, csrf_header_name }: ResultsProps)
 		{ queryKey: [baseURL, "MultidimensionalCharts"], queryFn: () => DtApiClient.MultidimensionalCharts() },
 		{ queryKey: [baseURL, "SLO"], queryFn: () => DtApiClient.SLO() },
 		{ queryKey: [baseURL, "Synthetics"], queryFn: () => DtApiClient.Synthetics() },
+		{ queryKey: [baseURL, "Dashboards"], queryFn: () => DtApiClient.Dashboards() },
 	]);
 
 	const applicationQueries = useQueries([
