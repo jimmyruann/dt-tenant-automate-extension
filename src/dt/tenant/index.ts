@@ -236,11 +236,14 @@ export class DTApi {
 			KeyUserActions: 0,
 			SessionProperties: 0,
 			SessionReplay: 0,
+			WebApplications: 0,
+			MobileApplications: 0,
+			CustomApplications: 0,
 		};
 
 		const webAppPromises = await Promise.all(
 			applications.data.uemApplications
-				.filter((application) => application.serviceType.toLowerCase() === "website")
+				.filter((application) => new RegExp(/^APPLICATION-(.+)/).test(application.id))
 				.map((application) => {
 					const app = new WebApplication(application.id, this.axiosClient);
 					return Promise.all([
@@ -256,18 +259,29 @@ export class DTApi {
 				}),
 		);
 
-		console.log(webAppPromises);
+		const mobileAppPromises = applications.data.uemApplications.filter((application) =>
+			new RegExp(/^MOBILE_APPLICATION-(.+)/).test(application.id),
+		);
 
-		webAppPromises.map((applicationPromises) => {
+		const customAppPromises = applications.data.uemApplications.filter((application) =>
+			new RegExp(/^CUSTOM_APPLICATION-(.+)/).test(application.id),
+		);
+
+		webAppPromises.forEach((applicationPromises) => {
 			result.UserTaggingRules += applicationPromises[0].UserTaggingRules;
 			result.ConversionGoals += applicationPromises[1].ConversionGoals;
 			result.UserActionNamingRulesXHR += applicationPromises[2].XHRUserActionNamingRules;
 			result.UserActionNamingRulesCustom += applicationPromises[3].CustomUserActionNamingRules;
 			result.UserActionNamingRulesLoad += applicationPromises[4].LoadUserActionNamingRules;
+			console.log(applicationPromises[5].KeyUserActions);
 			result.KeyUserActions += applicationPromises[5].KeyUserActions;
 			result.SessionProperties += applicationPromises[6].SessionProperties;
 			if (applicationPromises[7].SessionReplay) result.SessionReplay++;
 		});
+
+		result.WebApplications = webAppPromises.length;
+		result.MobileApplications = mobileAppPromises.length;
+		result.CustomApplications = customAppPromises.length;
 
 		return result;
 	}
@@ -330,14 +344,14 @@ class WebApplication {
 			`/rest/uemshareddetails/overviewdata/performanalysis/${this.applicationId}?parts=buseractkey%2Cbuseractn&gtf=l_30_DAYS`,
 		);
 
-		let KeyUserActions = 0;
-
-		if (data && data.userActions2 && data.userActions2.result && data.userActions2.result.realtimeUserActions) {
-			KeyUserActions = data.userActions2.result.realtimeUserActions.length;
-		}
-
 		return {
-			KeyUserActions,
+			KeyUserActions:
+				(data &&
+					data.userActions2 &&
+					data.userActions2.result &&
+					data.userActions2.result.realtimeUserActions &&
+					data.userActions2.result.realtimeUserActions.length) ||
+				0,
 		};
 	}
 

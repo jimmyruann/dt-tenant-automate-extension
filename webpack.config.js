@@ -4,6 +4,7 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
+const isRelease = process.env.NODE_ENV == "release";
 
 const stylesHandler = "style-loader";
 
@@ -53,6 +54,14 @@ const config = {
 };
 
 module.exports = () => {
+	if (isRelease) {
+		config.mode = "production";
+		config.output = {
+			path: path.resolve(__dirname, "dt-automate-ext-release"),
+		}
+
+		return config
+	}
 	if (isProduction) {
 		config.mode = "production";
 	} else {
