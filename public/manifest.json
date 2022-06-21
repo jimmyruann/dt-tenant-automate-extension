@@ -4,16 +4,13 @@
 	"description": "Pull HC data out from Dynatrace & don't tell the managers.",
 	"version": "1.0.0",
 	"author": "Jimmy Ruan",
-	"background": {
-		"service_worker": "background.js"
-	},
 	"action": {
 		"default_icon": { "16": "assets/120.png", "48": "assets/152.png", "128": "assets/180.png" },
 		"default_title": "Tenant Health Check",
 		"default_popup": "popup.html"
 	},
 	"permissions": ["tabs", "activeTab", "scripting"],
-	"host_permissions": ["https://*.live.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.sprint.dynatracelabs.com/*", "https://*.dev.dynatracelabs.com/*"],
+	"host_permissions": ["https://*.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.dynatracelabs.com/*"],
 	"web_accessible_resources": [
 		{
 			"resources": ["index.html", "foreground.js"],

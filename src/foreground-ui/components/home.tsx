@@ -11,7 +11,7 @@ export const Home = () => {
 	useEffect(() => {
 		const getTabs = async () => {
 			const tabs = await chrome.tabs.query({
-				url: ["https://*.live.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.sprint.dynatracelabs.com/*", "https://*.dev.dynatracelabs.com/*"],
+				url: ["https://*.dynatrace.com/*", "https://*.dynalabs.io/*", "https://*.dynatracelabs.com/*"],
 			});
 
 			setDynatraceTabs(

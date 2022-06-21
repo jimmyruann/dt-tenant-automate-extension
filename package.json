@@ -45,7 +45,7 @@
 		"build": "webpack --mode=production --node-env=production",
 		"build:dev": "webpack --mode=development",
 		"build:prod": "webpack --mode=production --node-env=production",
-		"release": "webpack --mode=production --node-env=release && zip -r dt-automate-ext-release.zip dt-automate-ext-release && rm -rf dt-automate-ext-release",
+		"release": "webpack --mode=production --node-env=release && rm -rf dt-automate-ext-release.zip && zip -r dt-automate-ext-release.zip dt-automate-ext-release && rm -rf dt-automate-ext-release",
 		"dev": "webpack --watch",
 		"test": "jest"
 	}

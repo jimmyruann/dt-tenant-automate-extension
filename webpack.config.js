@@ -12,8 +12,6 @@ const config = {
 	entry: {
 		popup: path.join(__dirname, "src/popup-ui/index.tsx"),
 		foreground: path.join(__dirname, "src/foreground-ui/index.tsx"),
-		background: path.join(__dirname, "src/background.ts"),
-		inject: path.join(__dirname, "src/inject.ts"),
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
