@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Tenant Health Check",
 	"description": "Pull HC data out from Dynatrace & don't tell the managers.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Jimmy Ruan",
 	"action": {
 		"default_icon": { "16": "assets/120.png", "48": "assets/152.png", "128": "assets/180.png" },
