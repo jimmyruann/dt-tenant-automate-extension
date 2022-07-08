@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Tenant Health Check",
-	"description": "Pull HC data out from Dynatrace & don't tell the managers.",
+	"description": "Pull HC data out from Dynatrace. Use this chrome extension at your own risk as this is not supported nor built by Dynatrace. ",
 	"version": "1.0.1",
 	"author": "Jimmy Ruan",
 	"action": {
