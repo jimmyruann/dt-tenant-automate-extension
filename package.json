@@ -1,6 +1,6 @@
 {
 	"name": "dt-tenant-automate-extension",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "index.js",
 	"author": "jimmyruann <jimmyruan@hotmail.com>",
 	"license": "MIT",
